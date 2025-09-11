@@ -5,7 +5,7 @@ This repo contains a collection of small but useful projects built with **HTML, 
 Each project is lightweight, interactive, and designed to solve a specific problem or demonstrate a feature.  
 
 
-## 📌 Live Projects  
+### 📌 Live Projects  
 
 ## 1. ☁️ Weather Check App  
 🔗 [Live Demo](https://shmcoder.github.io/MiniProjects/Weather/)  
