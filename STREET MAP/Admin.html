@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        main {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .form-container input, .form-container button {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .form-container input {
+            width: calc(25% - 10px);
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container button.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>Admin Panel</header>
+<main>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Disease Name</th>
+                <th>Area/Location</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamic rows will be added here -->
+        </tbody>
+    </table>
+
+    <div class="form-container">
+        <input type="text" id="name" placeholder="Name">
+        <input type="date" id="date">
+        <input type="text" id="disease" placeholder="Disease Name">
+        <input type="text" id="location" placeholder="Area/Location">
+        <button onclick="addRow()">Add</button>
+        <button class="hidden" id="updateBtn" onclick="updateRow()">Update</button>
+        <button onclick="exportToExcel()">Export to Excel</button>
+    </div>
+</main>
+
+<!-- Include the xlsx library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+<script>
+    let currentEditIndex = null;
+
+    function addRow() {
+        const name = document.getElementById('name').value;
+        const date = document.getElementById('date').value;
+        const disease = document.getElementById('disease').value;
+        const location = document.getElementById('location').value;
+
+        if (!name || !date || !disease || !location) {
+            alert('Please fill out all fields.');
+            return;
+        }
+
+        const table = document.getElementById('dataTable').querySelector('tbody');
+        const newRow = table.insertRow();
+        const rowCount = table.rows.length;
+
+        newRow.innerHTML = 
+            `<td>${rowCount}</td>
+            <td>${name}</td>
+            <td>${date}</td>
+            <td>${disease}</td>
+            <td>${location}</td>
+            <td>
+                <button onclick="editRow(this)">Edit</button>
+                <button onclick="deleteRow(this)">Delete</button>
+            </td>`;
+
+        saveData();
+        clearInputs();
+    }
+
+    function deleteRow(button) {
+        const row = button.parentElement.parentElement;
+        row.remove();
+        updateRowNumbers();
+        saveData();
+    }
+
+    function editRow(button) {
+        const row = button.parentElement.parentElement;
+        currentEditIndex = row.rowIndex;
+
+        document.getElementById('name').value = row.cells[1].textContent;
+        document.getElementById('date').value = row.cells[2].textContent;
+        document.getElementById('disease').value = row.cells[3].textContent;
+        document.getElementById('location').value = row.cells[4].textContent;
+
+        document.getElementById('updateBtn').classList.remove('hidden');
+    }
+
+    function updateRow() {
+        if (currentEditIndex === null) return;
+
+        const table = document.getElementById('dataTable').querySelector('tbody');
+        const row = table.rows[currentEditIndex - 1];
+
+        row.cells[1].textContent = document.getElementById('name').value;
+        row.cells[2].textContent = document.getElementById('date').value;
+        row.cells[3].textContent = document.getElementById('disease').value;
+        row.cells[4].textContent = document.getElementById('location').value;
+
+        document.getElementById('updateBtn').classList.add('hidden');
+        clearInputs();
+        currentEditIndex = null;
+        saveData();
+    }
+
+    function updateRowNumbers() {
+        const rows = document.getElementById('dataTable').querySelector('tbody').rows;
+        for (let i = 0; i < rows.length; i++) {
+            rows[i].cells[0].textContent = i + 1;
+        }
+    }
+
+    function clearInputs() {
+        document.getElementById('name').value = '';
+        document.getElementById('date').value = '';
+        document.getElementById('disease').value = '';
+        document.getElementById('location').value = '';
+    }
+
+    function saveData() {
+        const table = document.getElementById('dataTable').querySelector('tbody');
+        const rows = Array.from(table.rows).map(row => ({
+            sno: row.cells[0].textContent,
+            name: row.cells[1].textContent,
+            date: row.cells[2].textContent,
+            disease: row.cells[3].textContent,
+            location: row.cells[4].textContent
+        }));
+
+        localStorage.setItem('tableData', JSON.stringify(rows));
+    }
+
+    function loadData() {
+        const table = document.getElementById('dataTable').querySelector('tbody');
+        const data = JSON.parse(localStorage.getItem('tableData')) || [];
+
+        data.forEach((row, index) => {
+            const newRow = table.insertRow();
+
+            newRow.innerHTML = 
+                `<td>${index + 1}</td>
+                <td>${row.name}</td>
+                <td>${row.date}</td>
+                <td>${row.disease}</td>
+                <td>${row.location}</td>
+                <td>
+                    <button onclick="editRow(this)">Edit</button>
+                    <button onclick="deleteRow(this)">Delete</button>
+                </td>`;
+        });
+    }
+
+    // Export to Excel function
+    function exportToExcel() {
+        const table = document.getElementById('dataTable');
+        const wb = XLSX.utils.table_to_book(table, { sheet: "Sheet1" });
+        XLSX.writeFile(wb, "table_data.xlsx");
+    }
+
+    window.onload = loadData;
+</script>
+
+</body>
+</html>

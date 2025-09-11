@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viewers Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+
+        header {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>Viewers Page</header>
+    <main>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Disease Name</th>
+                    <th>Area/Location</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <a target="_blank" href="./Index.html">
+            <h3>VIEW MAP PLOT</h3>
+        </a>
+        <a target="_blank" href="./Admin.html">
+            <h3>DATA ADD + </h3>
+        </a>
+
+        <script>
+            function loadData() {
+                const table = document.getElementById('dataTable').querySelector('tbody');
+                const data = JSON.parse(localStorage.getItem('tableData')) || [];
+
+                data.forEach((row, index) => {
+                    const newRow = table.insertRow();
+                    newRow.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${row.name}</td>
+                    <td>${row.date}</td>
+                    <td>${row.disease}</td>
+                    <td>${row.location}</td>
+                `;
+                });
+            }
+
+            window.onload = loadData;
+        </script>
+    </main>
+
+</body>
+
+</html>
