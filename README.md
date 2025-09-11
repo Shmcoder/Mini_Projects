@@ -9,7 +9,7 @@ Each project is lightweight, interactive, and designed to solve a specific probl
 
 # 1. 🚗 Add New Driver  
 
-## 📌 Project Overview  
+## Overview  
 The **Add New Driver** project is designed to streamline the process of adding and managing driver details through a **step-by-step, user-friendly form**.  
 Each form step is validated to ensure accurate data input, and driver details are stored securely in a database for easy retrieval and management.  
 
