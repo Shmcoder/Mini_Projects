@@ -58,7 +58,8 @@ The **Weather Check App** allows users to:
 - 🌍 Search for any city around the world  
 - 🌡️ Get real-time weather updates (temperature, humidity, conditions)  
 - 📱 View a responsive and user-friendly interface
-- 
+
+
 ```bash
 
 
