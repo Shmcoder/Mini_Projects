@@ -7,7 +7,7 @@ Each project is lightweight, interactive, and designed to solve a specific probl
 
 ## 📌 Live Projects  
 
-### 1. ☁️ Weather Check App  
+## 1. ☁️ Weather Check App  
 🔗 [Live Demo](https://shmcoder.github.io/MiniProjects/Weather/)  
 
 The **Weather Check App** allows users to:  
@@ -15,7 +15,7 @@ The **Weather Check App** allows users to:
 - 🌡️ Get real-time weather updates (temperature, humidity, conditions)  
 - 📱 View a responsive and user-friendly interface  
 
-### 2. 🗺️ Street Map – OpenStreetMap (OSM) Integration  
+## 2. 🗺️ Street Map – OpenStreetMap (OSM) Integration  
 This project integrates **OpenStreetMap (OSM)** into an application, providing a **real-time, interactive map** for location visualization, route planning, and tracking purposes.  
 
 #### ✨ Features  
@@ -28,7 +28,8 @@ This project integrates **OpenStreetMap (OSM)** into an application, providing a
 - **Mapping API**: OpenStreetMap  
 
 #### ⚙️ Setup and Installation  
-### 3. 📊 Table CRUD Operation  
+
+## 3. 📊 Table CRUD Operation  
 
 The **Table CRUD Operation** project demonstrates basic database-like operations directly in the browser using **HTML, CSS, and JavaScript**.  
 
