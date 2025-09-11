@@ -7,13 +7,22 @@ Each project is lightweight, interactive, and designed to solve a specific probl
 
 ### 📌 Live Projects  
 
-## 1. ☁️ Weather Check App  
-🔗 [Live Demo](https://shmcoder.github.io/MiniProjects/Weather/)  
+# 1. 🚗 Add New Driver  
 
-The **Weather Check App** allows users to:  
-- 🌍 Search for any city around the world  
-- 🌡️ Get real-time weather updates (temperature, humidity, conditions)  
-- 📱 View a responsive and user-friendly interface  
+## 📌 Project Overview  
+The **Add New Driver** project is designed to streamline the process of adding and managing driver details through a **step-by-step, user-friendly form**.  
+Each form step is validated to ensure accurate data input, and driver details are stored securely in a database for easy retrieval and management.  
+
+## ✨ Features  
+- 📝 **Sequential Form Pages**: Collects driver information across multiple pages for better organization.  
+- ✅ **Validation**: Each page includes validation checks before moving to the next step.  
+- 💾 **Data Storage**: All driver details are securely stored in a database.  
+- 🔍 **Easy Management**: Stored data can be retrieved, viewed, and managed efficiently.  
+
+## 🛠️ Technologies Used  
+- **Frontend**: HTML, CSS, JavaScript  
+- **Backend**: FastAPI  
+- **Database**: MySQL 
 
 ## 2. 🗺️ Street Map – OpenStreetMap (OSM) Integration  
 This project integrates **OpenStreetMap (OSM)** into an application, providing a **real-time, interactive map** for location visualization, route planning, and tracking purposes.  
@@ -42,7 +51,14 @@ The **Table CRUD Operation** project demonstrates basic database-like operations
 #### 🛠️ Technologies Used  
 - **Frontend**: HTML, CSS, JavaScript  
 
+## 4. ☁️ Weather Check App  
+🔗 [Live Demo](https://shmcoder.github.io/MiniProjects/Weather/)  
 
+The **Weather Check App** allows users to:  
+- 🌍 Search for any city around the world  
+- 🌡️ Get real-time weather updates (temperature, humidity, conditions)  
+- 📱 View a responsive and user-friendly interface
+- 
 ```bash
 
 
