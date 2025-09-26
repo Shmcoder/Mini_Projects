@@ -52,7 +52,7 @@ The **Table CRUD Operation** project demonstrates basic database-like operations
 - **Frontend**: HTML, CSS, JavaScript  
 
 ## 4. ☁️ Weather Check App  
-🔗 [Live Demo](https://shmcoder.github.io/MiniProjects/Weather/)  
+🔗 [Live Demo](https://shmcoder.github.io/Mini_Projects/Weather/)  
 
 The **Weather Check App** allows users to:  
 - 🌍 Search for any city around the world  
