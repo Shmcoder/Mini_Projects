@@ -1,0 +1,213 @@
+
+* {
+  font-family: monospace;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: white;
+  color: #e6e6e6;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+h1 {
+  font-size: 30px;
+  color: black ;
+  padding:10px;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 0.9em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+button:hover {
+  border-color: #e94560;
+  background-color: #2a2a2a;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.player-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.track-list-container {
+  background-color: rgba(212, 212, 212, 1.0);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.track-list-container h2 {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: red;
+  font-size: 2.0rem;
+}
+
+.track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 1.1rem;
+}
+
+.track-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.track-list::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 3px;
+}
+
+.track-list::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 3px;
+}
+
+.track-card {
+  background-color: rgba(46, 46, 46);
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 6px solid transparent;
+}
+
+.track-card:hover {
+  background-color: rgba(46, 46, 46, 0.9);
+  transform: translateY(-2px);
+  border-left-color: red;
+}
+
+.track-card.active {
+  background-color: rgba(46, 46, 46, 0.9);
+  border-left-color: red;
+}
+
+.track-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.track-card-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
+.track-card-duration {
+  font-size: 0.9rem;
+}
+
+.track-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.track-card-artist, .track-card-movie {
+  color: #b3b3b3;
+  font-style: italic;
+}
+
+.track-card-genre {
+  display: inline-block;
+  background-color: rgba(233, 69, 96, 0.6);
+  color: white;
+  font-style: italic;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+.track-card-player {
+  margin: 0.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.track-card.active .track-card-player {
+  display: flex;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0.5rem 0;
+}
+.play-btn,.prev-btn,.next-btn ,.icon ,.shuffle-btn{
+   font-style: normal;
+  font-size: 22px;
+}
+
+.progress-container {
+  width: 100%;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: white;
+  border-radius: 3px;
+  position: relative;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: var(--progress, 0%);
+  background-color: red;
+  border-radius: 3px;
+  transition: width 0.1s linear;
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
