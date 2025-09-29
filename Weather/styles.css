@@ -4,7 +4,7 @@ body {
 }
 
 .block {
-    background: linear-gradient(130deg, #00feba, #8474e7);
+    background: linear-gradient(130deg, #33ffc9, #725fe8);
     width: 90%;
     max-width: 800px;
     color: #fff;
@@ -88,22 +88,24 @@ body {
     margin-bottom: 0px;
 }
 
-h6 {
-    /* font-size: 30px; */
+h5 {
+    font-size: 40px;
+    margin: 15px 0px 0px 0px;
 }
 
-.wind-humidity-note {
+.wind-humidity-container {
     display: flex;
-    flex-direction: row;
-    width: 40px;
-    height: 120px;
-    /* padding-top: 10px; */
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .weather-icon-humidity,
 .weather-icon-wind {
-    height: 80px;
-    max-width: 80px;
-    
+    max-width: 50px;
+    max-height: 50px;
+    padding-right:15px;
+}
+
+.wind-humidity-row {
+    display: flex;
+    justify-content: center;
 }
