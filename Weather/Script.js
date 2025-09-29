@@ -14,12 +14,12 @@ async function checkWeather(city) {
     data.main.humidity + " %";
   document.querySelector(".wind-output").innerHTML =
     Math.round(data.wind.speed * 3.6) + " km/h";
-  //   console.log(data.weather[0].main);
+  console.log(data.weather[0].main);
   if (data.weather[0].main == "Clouds") {
     weatherIcon.src = "image/clouds.png";
   } else if (data.weather[0].main == "Clear") {
     weatherIcon.src = "image/clear.png";
-  } else if (data.weather[0].main == "rain") {
+  } else if (data.weather[0].main == "Rain") {
     weatherIcon.src = "image/rain.png";
   } else if (data.weather[0].main == "Snow") {
     weatherIcon.src = "image/snow.png";
