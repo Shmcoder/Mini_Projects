@@ -1,6 +1,13 @@
 body {
     background-color: rgb(255, 253, 253);
 }
+
+
+
+* {
+    font-family: "Silkscreen", sans-serif;
+}
+
 .block {
     background: linear-gradient(130deg, #33ffc9, #725fe8);
     width: 90%;
@@ -36,7 +43,7 @@ body {
     flex: 1;
     margin-right: 16px;
     font-size: 20px;
-    font-family:unset;
+    font-family: unset;
 }
 
 .search {
@@ -98,12 +105,13 @@ h5 {
     justify-content: space-around;
 }
 
-.weather-icon-humidity{
+.weather-icon-humidity {
     max-width: 80px;
     max-height: 80px;
     padding-top: 8px;
     padding-right: 15px;
 }
+
 .weather-icon-wind {
     max-width: 80px;
     max-height: 80px;
@@ -120,3 +128,7 @@ h6 {
     font-size: 35px;
     margin: 0px;
 }
+
+/* .wind-output , .Humidity-output{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+} */
