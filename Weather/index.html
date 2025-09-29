@@ -17,16 +17,42 @@
         </div>
         <div class="weather">
             <div class="img">
-                <img src="image/clear.png" class="weather-icon" alt="weather">
+                <img src="image/clear.png" class="weather-icon-clear" alt="weather">
+                <div class="tt">
+                    <h1 class="txt">0</h1><span>°C</span>
+                </div>
+                <div class="city">
+                    <h7 class="cityname">- - -</h7>
+                </div>
             </div>
-            <div class="tt">
-                <h1 class="txt">0</h1><span>°C</span>
-            </div>
-            <div class="city">
-                <h2 class="cityname">- - -</h2>
+            <div>
+                <div class="humidity">
+                    
+                </div>
+                <div class="Wind">
+                    
+                </div>
             </div>
 
+
+
+
+
+
+
+
+            <!-- <div class="wind-humidity-note">
+                <div>
+                    <img src="image/humidity.png" class="weather-icon-humidity" alt="">
+                    <h6>Humidity</h6>
+                </div>
+                <div>
+                    <img src="image/wind.png" class="weather-icon-wind" alt="">
+                    <h6>Wind Speed</h6>
+                </div>
+            </div> -->
         </div>
+    </div>
 
     </div>
     <script>
@@ -35,16 +61,16 @@
         const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
         const search = document.querySelector(".citytext");
         const searchbtn = document.querySelector(".lens");
-        const weatherIcon = document.querySelector("weather-icon");
+        // const weatherIcon = document.querySelector("weather-icon");
         async function checkWeather(city) {
             const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
             var data = await response.json();
             console.log(data);
             document.querySelector(".cityname").innerHTML = (data.name).toUpperCase();
             document.querySelector(".txt").innerHTML = Math.round(data.main.temp);
-            if (data.weather[0].main == "Clouds") {
-                weatherIcon.src = "image/clouds.png";
-            }
+            // if (data.weather[0].main == "Clouds") {
+            //     weatherIcon.src = "image/clouds.png";
+            // }
         }
         searchbtn.addEventListener("click", () => {
             checkWeather(search.value);
