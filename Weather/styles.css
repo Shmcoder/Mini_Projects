@@ -1,8 +1,6 @@
 body {
     background-color: rgb(255, 253, 253);
-
 }
-
 .block {
     background: linear-gradient(130deg, #33ffc9, #725fe8);
     width: 90%;
@@ -28,8 +26,6 @@ body {
 }
 
 .citytext {
-    /* border-radius: 10px;
-    /* border-style: none; */
     border-radius: 0;
     outline: 0;
     background: #ebfffc;
@@ -40,7 +36,7 @@ body {
     flex: 1;
     margin-right: 16px;
     font-size: 20px;
-    font-family: cursive;
+    font-family:unset;
 }
 
 .search {
@@ -61,7 +57,7 @@ body {
 }
 
 .txt {
-    font-family: cursive;
+    /* font-family: cursive; */
     font-weight: 550px;
     font-size: 80px;
     margin-top: 0px;
@@ -70,7 +66,7 @@ body {
 }
 
 .tt {
-    font-family: cursive;
+    /* font-family: cursive; */
     display: flex;
     justify-content: center;
 }
@@ -82,15 +78,19 @@ body {
 }
 
 .cityname {
-    font-family: cursive;
-    font-size: 80px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    /* font-family: cursive; */
+    font-size: 60px;
+
+}
+
+.city {
+    margin-bottom: 25px;
 }
 
 h5 {
     font-size: 40px;
     margin: 15px 0px 0px 0px;
+    align-items: center;
 }
 
 .wind-humidity-container {
@@ -98,14 +98,25 @@ h5 {
     justify-content: space-around;
 }
 
-.weather-icon-humidity,
+.weather-icon-humidity{
+    max-width: 80px;
+    max-height: 80px;
+    padding-top: 8px;
+    padding-right: 15px;
+}
 .weather-icon-wind {
-    max-width: 50px;
-    max-height: 50px;
-    padding-right:15px;
+    max-width: 80px;
+    max-height: 80px;
+    padding-right: 15px;
 }
 
 .wind-humidity-row {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+h6 {
+    font-size: 35px;
+    margin: 0px;
 }

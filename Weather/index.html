@@ -29,16 +29,16 @@
                 <div class="humidity">
                     <div class="wind-humidity-row">
                         <img src="image/humidity.png" class="weather-icon-humidity" alt="">
-                        <h6>26%</h6>
+                        <h6 class="Humidity-output"></h6>
                     </div>
                     <h5>Humidity</h5>
                 </div>
                 <div class="Wind">
                     <div class="wind-humidity-row">
                         <img src="image/wind.png" class="weather-icon-wind" alt="">
-                        <h6></h6>
+                        <h6 class="wind-output"></h6>
                     </div>
-                    <h5>Wind</h5>
+                    <h5>Wind Speed</h5>
                 </div>
             </div>
 
@@ -63,28 +63,7 @@
     </div>
 
     </div>
-    <script>
-
-        const apiKey = "9c1dd34bea924a47e450ecf154e89074";
-        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-        const search = document.querySelector(".citytext");
-        const searchbtn = document.querySelector(".lens");
-        // const weatherIcon = document.querySelector("weather-icon");
-        async function checkWeather(city) {
-            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-            var data = await response.json();
-            console.log(data);
-            document.querySelector(".cityname").innerHTML = (data.name).toUpperCase();
-            document.querySelector(".txt").innerHTML = Math.round(data.main.temp);
-            // if (data.weather[0].main == "Clouds") {
-            //     weatherIcon.src = "image/clouds.png";
-            // }
-        }
-        searchbtn.addEventListener("click", () => {
-            checkWeather(search.value);
-        });
-
-    </script>
+    <script src="./Script.js"></script>
 </body>
 
 
